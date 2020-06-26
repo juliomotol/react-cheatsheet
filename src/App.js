@@ -17,6 +17,11 @@ import TestInstanceCard from './components/TestInstanceCard';
 import './App.scss';
 
 const theme = createMuiTheme({
+  mixins: {
+    toolbar: {
+      minHeight: 64,
+    },
+  },
   palette: {
     primary: {
       main: '#1f2128',
@@ -34,10 +39,10 @@ const theme = createMuiTheme({
   overrides: {
     MuiCard: {
       root: {
-        background: '#fff'
-      }
-    }
-  }
+        background: '#fff',
+      },
+    },
+  },
 });
 
 export default class App extends React.Component {
