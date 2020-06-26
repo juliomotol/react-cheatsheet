@@ -10,7 +10,7 @@ import {
   ListItemSecondaryAction,
   Chip,
   Divider,
-  CardActions
+  CardActions,
 } from '@material-ui/core';
 import { Launch } from '@material-ui/icons';
 import './CardList.scss';
@@ -39,8 +39,8 @@ export default class CardList extends React.Component {
           subheader={subheader}
           action={
             actionUrl && (
-              <Link href={actionUrl} color="inherit" underline="none" target="_blank" rel="noopener noreferrer">
-                <IconButton>
+              <Link href={actionUrl} color="inherit" target="_blank" rel="noopener noreferrer">
+                <IconButton aria-label="view page">
                   <Launch aria-label="open page" />
                 </IconButton>
               </Link>
@@ -53,7 +53,7 @@ export default class CardList extends React.Component {
             list.map((item, index) => (
               <React.Fragment key={index.toString()}>
                 <Link href={item.href} color="inherit" underline="none" target="_blank" rel="noopener noreferrer">
-                  <ListItem button>
+                  <ListItem component="div" button>
                     <ListItemText primary={item.title} />
                     {item.tag && (
                       <ListItemSecondaryAction>
