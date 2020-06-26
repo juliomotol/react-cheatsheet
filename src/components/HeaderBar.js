@@ -30,7 +30,12 @@ export default class HeaderBar extends React.Component {
           <Hidden xsDown>
             <Chip label={this.state.stargazersCount} deleteIcon={<StarOutlined />} onDelete={() => {}} />
           </Hidden>
-          <Link href="https://github.com/juliomotol/react-cheatsheet" color="inherit">
+          <Link
+            href="https://github.com/juliomotol/react-cheatsheet"
+            color="inherit"
+            starget="_blank"
+            rel="noopener noreferrer"
+          >
             <IconButton aria-label="view on github" color="inherit" edge="end">
               <GitHubIcon />
             </IconButton>
