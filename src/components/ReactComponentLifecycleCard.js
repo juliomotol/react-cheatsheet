@@ -103,7 +103,7 @@ export default class ReactComponentLifecycleCard extends React.Component {
     return (
       <CardList
         title="React.Component"
-        subheader="LifeCycle"
+        subheader="Lifecycle"
         actionUrl="https://reactjs.org/docs/react-component.html"
         list={this.state.list.filter((item) => {
           if (!this.state.shouldShowLegacy && item.isLegacy) {
