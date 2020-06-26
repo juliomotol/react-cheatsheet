@@ -53,7 +53,7 @@ export default class CardList extends React.Component {
             list.map((item, index) => (
               <React.Fragment key={index.toString()}>
                 <Link href={item.href} color="inherit" underline="none" target="_blank" rel="noopener noreferrer">
-                  <ListItem button>
+                  <ListItem component="div" button>
                     <ListItemText primary={item.title} />
                     {item.tag && (
                       <ListItemSecondaryAction>
