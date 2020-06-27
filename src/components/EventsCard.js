@@ -166,18 +166,18 @@ export default class EventsCard extends React.Component {
             All these events are extended from&nbsp;
             <Link
               href="https://reactjs.org/docs/events.html#overview"
-              underline="none"
               target="_blank"
               rel="noopener noreferrer"
+              underline="always"
             >
               Synthetic Events
             </Link>
             . See also&nbsp;
             <Link
               href="https://reactjs.org/docs/events.html#event-pooling"
-              underline="none"
               target="_blank"
               rel="noopener noreferrer"
+              underline="always"
             >
               Event Pooling
             </Link>
