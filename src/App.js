@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, ThemeProvider, Paper, createMuiTheme } from '@material-ui/core';
+import { Box, Grid, ThemeProvider, Paper, createMuiTheme, Slide } from '@material-ui/core';
 import HeaderBar from './components/HeaderBar';
 import FooterBar from './components/FooterBar';
 import ReactAPICard from './components/ReactAPICard';
@@ -65,50 +65,78 @@ export default class App extends React.Component {
     return (
       <main className="app">
         <ThemeProvider theme={theme}>
-          <HeaderBar />
+          <Slide direction="down" timeout={500} appear in>
+            <HeaderBar />
+          </Slide>
           <Paper square elevation={0}>
             <Box className="app_container" p={2}>
               <Grid container className="app_grid" spacing={2} wrap="nowrap">
                 <Grid item>
-                  <ReactAPICard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <ReactAPICard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <HooksCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <HooksCard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <ReactComponentLifecycleCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <ReactComponentLifecycleCard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <ReactComponentInstanceCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <ReactComponentInstanceCard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <ReactDOMCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <ReactDOMCard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <ReactDOMServerCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <ReactDOMServerCard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <DOMElementAttributesCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <DOMElementAttributesCard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <EventsCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <EventsCard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <TestUtilitiesCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <TestUtilitiesCard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <TestRendererAPICard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <TestRendererAPICard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <TestRendererInstanceCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <TestRendererInstanceCard />
+                  </Slide>
                 </Grid>
                 <Grid item>
-                  <TestInstanceCard />
+                  <Slide direction="left" timeout={500} appear in>
+                    <TestInstanceCard />
+                  </Slide>
                 </Grid>
               </Grid>
             </Box>
           </Paper>
-          <FooterBar />
+          <Slide direction="up" timeout={500} appear in>
+            <FooterBar />
+          </Slide>
         </ThemeProvider>
       </main>
     );
