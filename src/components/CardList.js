@@ -11,18 +11,28 @@ import {
   Chip,
   Divider,
   CardActions,
+  Collapse,
 } from '@material-ui/core';
-import { Launch } from '@material-ui/icons';
+import { Launch, ExpandLess, ExpandMore } from '@material-ui/icons';
 import './CardList.scss';
 
 export default class CardList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { hasHover: false };
+    this.state = {
+      hasHover: false,
+      expandedSublist: null,
+    };
   }
 
   handleHover = (hasHover) => this.setState({ hasHover: hasHover });
+
+  toggleSublist = (event, subList) => {
+    event.preventDefault();
+
+    this.setState({ expandedSublist: subList !== this.state.expandedSublist ? subList : null });
+  };
 
   render() {
     let { title, subheader, actionUrl, list, cardActions } = this.props;
@@ -55,19 +65,32 @@ export default class CardList extends React.Component {
                 <Link href={item.href} color="inherit" underline="none" target="_blank" rel="noopener noreferrer">
                   <ListItem component="div" button>
                     <ListItemText primary={item.title} />
-                    {item.tag && (
-                      <ListItemSecondaryAction>
-                        <Chip label={item.tag} size="small" variant="outlined" />
+                    {item.tag && <Chip label={item.tag} size="small" variant="outlined" />}
+                    {item.subList && (
+                      <ListItemSecondaryAction onClick={(event) => this.toggleSublist(event, item.title)}>
+                        <IconButton aria-label="expand sublist" edge="end">
+                          {this.state.expandedSublist === item.title ? <ExpandLess /> : <ExpandMore />}
+                        </IconButton>
                       </ListItemSecondaryAction>
                     )}
                   </ListItem>
                 </Link>
-                {item.subList &&
-                  item.subList.map((item, key) => (
-                    <ListItem dense key={key}>
-                      <ListItemText inset primary={item.title} />
-                    </ListItem>
-                  ))}
+                {item.subList && (
+                  <>
+                    <Collapse in={this.state.expandedSublist === item.title}>
+                      <ListItem component="div">
+                        <List disablePadding>
+                          {item.subList.map((item, key) => (
+                            <ListItem dense key={key}>
+                              <ListItemText primary={item.title} />
+                            </ListItem>
+                          ))}
+                        </List>
+                      </ListItem>
+                      <Divider />
+                    </Collapse>
+                  </>
+                )}
               </React.Fragment>
             ))}
         </List>
