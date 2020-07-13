@@ -46,21 +46,6 @@ const theme = createMuiTheme({
 });
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      iframeModalIsActive: false,
-    };
-  }
-
-  handleCardListClick = (key) => {
-    console.log(key);
-    this.setState({ iframeModalIsActive: true });
-  };
-
-  handleClose = () => this.setState({ iframeModalIsActive: false });
-
   render() {
     return (
       <main className="app">

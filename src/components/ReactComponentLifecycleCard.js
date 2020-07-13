@@ -1,6 +1,9 @@
 import React from 'react';
-import { Chip, FormControlLabel, Checkbox, FormGroup, Grid } from '@material-ui/core';
-import CardList from './CardList';
+import { Divider, Chip, FormControlLabel, Checkbox, FormGroup, Grid, CardActions } from '@material-ui/core';
+import Card from './Card.js';
+import CardHeader from './CardHeader.js';
+import List from './List.js';
+import TaggedListItem from './TaggedListItem.js';
 
 export default class ReactComponentLifecycleCard extends React.Component {
   lifecycleTypes = {
@@ -19,75 +22,75 @@ export default class ReactComponentLifecycleCard extends React.Component {
       selectedType: null,
       list: [
         {
-          title: 'constructor()',
-          href: 'https://reactjs.org/docs/react-component.html#constructor',
+          text: 'constructor()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#constructor',
           lifeCycleType: ['mounting'],
         },
         {
-          title: 'static getDerivedStateFromProps()',
-          href: 'https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops',
+          text: 'static getDerivedStateFromProps()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops',
           lifeCycleType: ['mounting', 'updating'],
           isUncommon: true,
         },
         {
-          title: 'render()',
-          href: 'https://reactjs.org/docs/react-component.html#render',
+          text: 'render()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#render',
           lifeCycleType: ['mounting', 'updating'],
         },
         {
-          title: 'componentDidMount()',
-          href: 'https://reactjs.org/docs/react-component.html#componentdidmount',
+          text: 'componentDidMount()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#componentdidmount',
           lifeCycleType: ['mounting'],
         },
         {
-          title: 'UNSAFE_componentWillMount()',
-          href: 'https://reactjs.org/docs/react-component.html#unsafe_componenwillmount',
+          text: 'UNSAFE_componentWillMount()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#unsafe_componenwillmount',
           lifeCycleType: ['mounting'],
           isLegacy: true,
         },
         {
-          title: 'shouldUpdateComponent()',
-          href: 'https://reactjs.org/docs/react-component.html#shouldupdatecomponent',
+          text: 'shouldUpdateComponent()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#shouldupdatecomponent',
           lifeCycleType: ['updating'],
           isUncommon: true,
         },
         {
-          title: 'getSnapshotBeforeUpdate()',
-          href: 'https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate',
+          text: 'getSnapshotBeforeUpdate()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate',
           lifeCycleType: ['updating'],
           isUncommon: true,
         },
         {
-          title: 'componentDidUpdate()',
-          href: 'https://reactjs.org/docs/react-component.html#componentdidupdate',
+          text: 'componentDidUpdate()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#componentdidupdate',
           lifeCycleType: ['updating'],
         },
         {
-          title: 'UNSAFE_componentWillUpdate()',
-          href: 'https://reactjs.org/docs/react-component.html#unsafe_componentwillupdate',
-          lifeCycleType: ['updating'],
-          isLegacy: true,
-        },
-        {
-          title: 'UNSAFE_componentWillReceiveProps()',
-          href: 'https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops',
+          text: 'UNSAFE_componentWillUpdate()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#unsafe_componentwillupdate',
           lifeCycleType: ['updating'],
           isLegacy: true,
         },
         {
-          title: 'componentWillUnmount()',
-          href: 'https://reactjs.org/docs/react-component.html#componentwillunmount',
+          text: 'UNSAFE_componentWillReceiveProps()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops',
+          lifeCycleType: ['updating'],
+          isLegacy: true,
+        },
+        {
+          text: 'componentWillUnmount()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#componentwillunmount',
           lifeCycleType: ['unmounting'],
         },
         {
-          title: 'getDerivedStateFromError()',
-          href: 'https://reactjs.org/docs/react-component.html#static-getderivedstateFromerror',
+          text: 'getDerivedStateFromError()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#static-getderivedstateFromerror',
           lifeCycleType: ['error_handling'],
           isUncommon: true,
         },
         {
-          title: 'componentDidCatch()',
-          href: 'https://reactjs.org/docs/react-component.html#componentdidcatch',
+          text: 'componentDidCatch()',
+          actionUrl: 'https://reactjs.org/docs/react-component.html#componentdidcatch',
           lifeCycleType: ['error_handling'],
         },
       ],
@@ -101,24 +104,34 @@ export default class ReactComponentLifecycleCard extends React.Component {
 
   render() {
     return (
-      <CardList
-        title="React.Component"
-        subheader="Lifecycle"
-        actionUrl="https://reactjs.org/docs/react-component.html"
-        list={this.state.list.filter((item) => {
-          if (!this.state.shouldShowLegacy && item.isLegacy) {
-            return false;
-          }
-          if (!this.state.shouldShowUncommon && item.isUncommon) {
-            return false;
-          }
-          if (this.state.selectedType) {
-            return item.lifeCycleType.indexOf(this.state.selectedType) !== -1;
-          }
+      <Card>
+        <CardHeader
+          title="React.Component"
+          subheader="Lifecycle"
+          actionUrl="https://reactjs.org/docs/react-component.html"
+        />
+        <Divider />
+        <List>
+          {this.state.list
+            .filter((item) => {
+              if (!this.state.shouldShowLegacy && item.isLegacy) {
+                return false;
+              }
+              if (!this.state.shouldShowUncommon && item.isUncommon) {
+                return false;
+              }
+              if (this.state.selectedType) {
+                return item.lifeCycleType.indexOf(this.state.selectedType) !== -1;
+              }
 
-          return true;
-        })}
-        cardActions={
+              return true;
+            })
+            .map((item, index) => (
+              <TaggedListItem actionUrl={item.actionUrl} text={item.text} key={index}/>
+            ))}
+        </List>
+        <Divider />
+        <CardActions>
           <Grid container spacing={1}>
             <Grid item container spacing={1}>
               {Object.keys(this.lifecycleTypes).map((key) => (
@@ -145,8 +158,8 @@ export default class ReactComponentLifecycleCard extends React.Component {
               </FormGroup>
             </Grid>
           </Grid>
-        }
-      />
+        </CardActions>
+      </Card>
     );
   }
 }

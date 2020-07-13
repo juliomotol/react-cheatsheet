@@ -1,76 +1,83 @@
 import React from 'react';
-import CardList from './CardList.js';
-import { Button, Link } from '@material-ui/core';
+import { Divider, Link, CardActions } from '@material-ui/core';
+import Card from './Card.js';
+import CardHeader from './CardHeader.js';
+import List from './List.js';
+import TaggedListItem from './TaggedListItem.js';
 
 export default class DOMElementAttributesCard extends React.Component {
   render() {
     return (
-      <CardList
-        title="DOM Element Attributes"
-        actionUrl="https://reactjs.org/docs/dom-elements.html"
-        list={[
-          {
-            title: 'checked/defaultChecked',
-            href: 'https://reactjs.org/docs/dom-elements.html#checked',
-          },
-          {
-            title: (
+      <Card>
+        <CardHeader
+          title="DOM Element Attributes"
+          actionUrl="https://reactjs.org/docs/dom-elements.html"
+        />
+        <Divider />
+        <List>
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#checked"
+            text="checked/defaultChecked"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#classname"
+            text={
               <>
                 <strike>class</strike>
                 &nbsp;className
               </>
-            ),
-            href: 'https://reactjs.org/docs/dom-elements.html#classname',
-          },
-          {
-            title: 'dangerouslySetInnerHTML',
-            href: 'https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml',
-          },
-          {
-            title: (
+            }
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
+            text="dangerouslySetInnerHTML"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#htmlfor"
+            text={
               <>
                 <strike>for</strike>
                 &nbsp;htmlFor
               </>
-            ),
-            href: 'https://reactjs.org/docs/dom-elements.html#htmlfor',
-          },
-          {
-            title: 'onChange',
-            href: 'https://reactjs.org/docs/dom-elements.html#onchange',
-          },
-          {
-            title: 'selected',
-            href: 'https://reactjs.org/docs/dom-elements.html#selected',
-          },
-          {
-            title: 'style',
-            href: 'https://reactjs.org/docs/dom-elements.html#style',
-          },
-          {
-            title: 'suppressContentEditableWarning',
-            href: 'https://reactjs.org/docs/dom-elements.html#suppresscontenteditablewarning',
-          },
-          {
-            title: 'suppressHydrationWarning',
-            href: 'https://reactjs.org/docs/dom-elements.html#suppresshydrationwarning',
-          },
-          {
-            title: 'value/defaultValue',
-            href: 'https://reactjs.org/docs/dom-elements.html#value',
-          },
-        ]}
-        cardActions={
+            }
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#onchange"
+            text="onChange"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#selected"
+            text="selected"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#style"
+            text="style"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#suppresscontenteditablewarning"
+            text="suppressContentEditableWarning"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#suppresshydrationwarning"
+            text="suppressHydrationWarning"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/dom-elements.html#value"
+            text="value/defaultValue"
+          />
+        </List>
+        <Divider />
+        <CardActions>
           <Link
             href="https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes"
-            underline="none"
+            underline="always"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button>All Supported HTML Attributes</Button>
+            See all supported HTML attributes
           </Link>
-        }
-      />
+        </CardActions>
+      </Card>
     );
   }
 }
