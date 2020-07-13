@@ -2,36 +2,32 @@ name: CD
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Setup Node
-      uses: actions/setup-node@v1.4.1
-      with:
-        node-version: '12.x'
-
-    - name: Cache Dependencies 
-      uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-
-    - name: Install NPM Packages
-      run: npm ci
-
-    - name: Build React Application
-      run: npm run build
-
-    - name: Deploy Application
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1.4.1
+        with:
+          node-version: '12.x'
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install NPM Packages
+        run: npm ci
+      - name: Build React Application
+        run: npm run build
+      - name: Deploy Application
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
