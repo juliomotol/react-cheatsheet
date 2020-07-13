@@ -1,23 +1,30 @@
 import React from 'react';
-import CardList from './CardList.js';
+import { Divider } from '@material-ui/core';
+import Card from './Card.js';
+import CardHeader from './CardHeader.js';
+import List from './List.js';
+import TaggedListItem from './TaggedListItem.js';
 
 export default class TestRendererAPICard extends React.Component {
   render() {
     return (
-      <CardList
-        title="TestRenderer API"
-        actionUrl="https://reactjs.org/docs/test-renderer.html"
-        list={[
-          {
-            title: 'TestRenderer.create()',
-            href: 'https://reactjs.org/docs/test-renderer.html#testrenderercreate',
-          },
-          {
-            title: 'TestRenderer.act()',
-            href: 'https://reactjs.org/docs/test-renderer.html#testrendereract',
-          },
-        ]}
-      />
+      <Card>
+        <CardHeader
+          title="TestRenderer API"
+          actionUrl="https://reactjs.org/docs/test-renderer.html"
+        />
+        <Divider />
+        <List>
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testrenderercreate"
+            text="TestRenderer.create()"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testrendereract"
+            text="TestRenderer.act()"
+          />
+        </List>
+      </Card>
     );
   }
 }

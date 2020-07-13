@@ -1,59 +1,66 @@
 import React from 'react';
-import CardList from './CardList.js';
+import { Divider } from '@material-ui/core';
+import Card from './Card.js';
+import CardHeader from './CardHeader.js';
+import List from './List.js';
+import TaggedListItem from './TaggedListItem.js';
 
 export default class TestInstanceCard extends React.Component {
   render() {
     return (
-      <CardList
-        title="TestInstance"
-        actionUrl="https://reactjs.org/docs/test-renderer.html"
-        list={[
-          {
-            title: 'testInstance.find()',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstancefind',
-          },
-          {
-            title: 'testInstance.findByType()',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstancefindbytype',
-          },
-          {
-            title: 'testInstance.findByProps()',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstancefindbyprops',
-          },
-          {
-            title: 'testInstance.findAll()',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstancefindall',
-          },
-          {
-            title: 'testInstance.findAllByType()',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstancefindallbytype',
-          },
-          {
-            title: 'testInstance.findAllByProps()',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstancefindallbyprops',
-          },
-          {
-            title: 'testInstance.instance',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstanceinstance',
-          },
-          {
-            title: 'testInstance.type',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstancetype',
-          },
-          {
-            title: 'testInstance.props',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstanceprops',
-          },
-          {
-            title: 'testInstance.parent',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstanceparent',
-          },
-          {
-            title: 'testInstance.children',
-            href: 'https://reactjs.org/docs/test-renderer.html#testinstancechildren',
-          },
-        ]}
-      />
+      <Card>
+        <CardHeader
+          title="TestInstance"
+          actionUrl="https://reactjs.org/docs/test-renderer.html"
+        />
+        <Divider />
+        <List>
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstancefind"
+            text="testInstance.find()"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstancefindbytype"
+            text="testInstance.findByType()"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstancefindbyprops"
+            text="testInstance.findByProps()"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstancefindall"
+            text="testInstance.findAll()"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstancefindallbytype"
+            text="testInstance.findAllByType()"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstancefindallbyprops"
+            text="testInstance.findAllByProps()"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstanceinstance"
+            text="testInstance.instance"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstancetype"
+            text="testInstance.type"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstanceprops"
+            text="testInstance.props"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstanceparent"
+            text="testInstance.parent"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/test-renderer.html#testinstancechildren"
+            text="testInstance.children"
+          />
+        </List>
+      </Card>
     );
   }
 }

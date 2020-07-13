@@ -1,80 +1,84 @@
 import React from 'react';
-import CardList from './CardList.js';
+import { Divider } from '@material-ui/core';
+import Card from './Card.js';
+import CardHeader from './CardHeader.js';
+import List from './List.js';
+import TaggedListItem from './TaggedListItem.js';
 
 export default class ReactAPICard extends React.Component {
   render() {
     return (
-      <CardList
-        title="React API"
-        actionUrl="https://reactjs.org/docs/react-api.html"
-        list={[
-          {
-            title: 'React.Component',
-            href: 'https://reactjs.org/docs/react-api.html#reactcomponent',
-            tag: 'Components',
-          },
-          {
-            title: 'React.PureComponent',
-            href: 'https://reactjs.org/docs/react-api.html#reactpurecomponent',
-            tag: 'Components',
-          },
-          {
-            title: 'React.memo',
-            href: 'https://reactjs.org/docs/react-api.html#memo',
-            tag: 'Components',
-          },
-          {
-            title: 'createElement',
-            href: 'https://reactjs.org/docs/react-api.html#createelement',
-            tag: 'Elements',
-          },
-          {
-            title: 'createFactory',
-            href: 'https://reactjs.org/docs/react-api.html#createfactory',
-            tag: 'Elements',
-          },
-          {
-            title: 'cloneElement',
-            href: 'https://reactjs.org/docs/react-api.html#cloneelement',
-            tag: 'Elements',
-          },
-          {
-            title: 'isValidElement',
-            href: 'https://reactjs.org/docs/react-api.html#isvalidelement',
-            tag: 'Elements',
-          },
-          {
-            title: 'React.Children',
-            href: 'https://reactjs.org/docs/react-api.html#reactchildren',
-            tag: 'Elements',
-          },
-          {
-            title: 'React.Fragment',
-            href: 'https://reactjs.org/docs/react-api.html#reactfragment',
-            tag: 'Fragments',
-          },
-          {
-            title: 'React.createRef',
-            href: 'https://reactjs.org/docs/react-api.html#reactcreateref',
-            tag: 'Refs',
-          },
-          {
-            title: 'React.forwardRef',
-            href: 'https://reactjs.org/docs/react-api.html#reactforwardref',
-            tag: 'Refs',
-          },
-          {
-            title: 'React.lazy',
-            href: 'https://reactjs.org/docs/react-api.html#reactlazy',
-            tag: 'Suspense',
-          },
-          {
-            title: 'React.Suspense',
-            href: 'https://reactjs.org/docs/react-api.html#reactsuspense',
-            tag: 'Suspense',
-          },
-        ]}
-      />
+      <Card>
+        <CardHeader title="React API" actionUrl="https://reactjs.org/docs/react-api.html" />
+        <Divider />
+        <List>
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#reactcomponent"
+            text="React.Component"
+            tag="Components"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#reactpurecomponent"
+            text="React.PureComponent"
+            tag="Components"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#memo"
+            text="React.memo"
+            tag="Components"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#createelement"
+            text="createElement"
+            tag="Elements"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#createfactory"
+            text="createFactory"
+            tag="Elements"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#cloneelement"
+            text="cloneElement"
+            tag="Elements"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#isvalidelement"
+            text="isValidElement"
+            tag="Elements"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#reactchildren"
+            text="React.Children"
+            tag="Elements"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#reactfragment"
+            text="React.Fragment"
+            tag="Fragments"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#reactcreateref"
+            text="React.createRef"
+            tag="Refs"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#reactforwardref"
+            text="React.forwardRef"
+            tag="Refs"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#reactlazy"
+            text="React.lazy"
+            tag="Suspense"
+          />
+          <TaggedListItem
+            actionUrl="https://reactjs.org/docs/react-api.html#reactsuspense"
+            text="React.Suspense"
+            tag="Suspense"
+          />
+        </List>
+      </Card>
     );
   }
 }
