@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f11d47bcfa3a3868f55c71bed135fee1",
+    "revision": "cb18f5ed1ae6764b13015b23bd2789b1",
     "url": "/react-cheatsheet/index.html"
   },
   {
@@ -8,12 +8,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-cheatsheet/static/css/main.cf109131.chunk.css"
   },
   {
-    "revision": "fd6777a3fb1156057485",
-    "url": "/react-cheatsheet/static/js/2.c4d4c5d8.chunk.js"
+    "revision": "593e87173662fc895ffb",
+    "url": "/react-cheatsheet/static/js/2.250f68fe.chunk.js"
   },
   {
     "revision": "a2579ed7df986a64f9f2f96b6a2daefd",
-    "url": "/react-cheatsheet/static/js/2.c4d4c5d8.chunk.js.LICENSE.txt"
+    "url": "/react-cheatsheet/static/js/2.250f68fe.chunk.js.LICENSE.txt"
   },
   {
     "revision": "1d42937d94827743ebb5",
